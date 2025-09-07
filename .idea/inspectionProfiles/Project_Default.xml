@@ -1,0 +1,8 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="false" level="INFORMATION" enabled_by_default="false">
+      <scope name="Scratches and Consoles" level="INFORMATION" enabled="false" />
+    </inspection_tool>
+  </profile>
+</component>
