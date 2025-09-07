@@ -249,18 +249,13 @@ def mat_img_load(filepath,keywords_slice = None,return_loc=False):
     return img_list
 
 
-def mat_load(filepath):
-    img_list = []
-    files = [file for file in os.listdir(filepath) if file.endswith('.mat')]
-    for file in files:
-        fp = os.path.join(filepath, file)
-        with h5py.File(fp, 'r') as mat_data:
-            keys = list(mat_data.keys())
-            key = keys[0]
-            data1 = np.array(mat_data[key])
-        data = data1.view(np.complex128)
-        img_list.append(data)
-    return img_list
+def single_mat_load(filepath):
+    with h5py.File(filepath, 'r') as mat_data:
+        keys = list(mat_data.keys())
+        key = keys[0]
+        data1 = np.array(mat_data[key])
+    data = data1.view(np.complex128)
+    return data
 
 def stitch_patches_with_overlap(patches, img_height, img_width, patch_size, step_size):
     stitched_img = np.zeros((img_height, img_width))
